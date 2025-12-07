@@ -47,30 +47,30 @@ public class ViewLogistik {
 
         System.out.print("Tahun Produksi (contoh: 2020): ");
         int tahun = in.nextInt();
-        in.nextLine(); // Konsumsi newline
+        in.nextLine();
 
-        if (pilihJenis == 1) {
-            // Input khusus Mobil
-            System.out.print("Kapasitas Penumpang: ");
-            int kapasitas = in.nextInt();
-            in.nextLine();
-            System.out.print("Tipe Transmisi (Manual/Automatic): ");
-            String transmisi = in.nextLine();
-            return new Mobil(id, merk, model, hargaJual, tarifSewa, "TERSEDIA", lokasi, tahun, kapasitas, transmisi);
+        switch (pilihJenis) {
+            case 1:
+                System.out.print("Kapasitas Penumpang: ");
+                int kapasitas = in.nextInt();
+                in.nextLine();
+                System.out.print("Tipe Transmisi (Manual/Automatic): ");
+                String transmisi = in.nextLine();
+                return new Mobil(id, merk, model, hargaJual, tarifSewa, "TERSEDIA", lokasi, tahun, kapasitas, transmisi);
 
-        } else if (pilihJenis == 2) {
-            // Input khusus Motor
-            System.out.print("Kapasitas Mesin (cc): ");
-            double cc = in.nextDouble();
-            in.nextLine();
-            System.out.print("Ada Box? (true/false): ");
-            boolean adaBox = in.nextBoolean();
-            in.nextLine();
-            return new Motor(id, merk, model, hargaJual, tarifSewa, "TERSEDIA", lokasi, tahun, cc, adaBox);
+            case 2:
+                // Input khusus Motor
+                System.out.print("Kapasitas Mesin (cc): ");
+                double cc = in.nextDouble();
+                in.nextLine();
+                System.out.print("Ada Box? (true/false): ");
+                boolean adaBox = in.nextBoolean();
+                in.nextLine();
+                return new Motor(id, merk, model, hargaJual, tarifSewa, "TERSEDIA", lokasi, tahun, cc, adaBox);
 
-        } else {
-            System.out.println("Jenis tidak valid! Default ke Mobil.");
-            return new Mobil(id, merk, model, hargaJual, tarifSewa, "TERSEDIA", lokasi, tahun, 5, "Automatic");
+            default:
+                System.out.println("Jenis tidak valid! Default ke Mobil.");
+                return new Mobil(id, merk, model, hargaJual, tarifSewa, "TERSEDIA", lokasi, tahun, 5, "Automatic");
         }
     }
 
