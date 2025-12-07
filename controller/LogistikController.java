@@ -9,10 +9,11 @@ public class LogistikController {
     private static ArrayList<Kendaraan> armadaTerjual = new ArrayList<>();
     private static ArrayList<Penjualan> penjualanList = new ArrayList<>();
     private static ArrayList<Penyewaan> sewaList = new ArrayList<>();
+    private static ArrayList<Pengembalian> pengembalianList = new ArrayList<>();
     
-    private static int pembelianCounter = 1;
     private static int penjualanCounter = 1;
     private static int sewaCounter = 1;
+    private static int pengembalianCounter = 1;
 
     // Helper: buat pelanggan sementara
     private static Pelanggan buatPelangganSementara(String nama) {
@@ -23,9 +24,9 @@ public class LogistikController {
     public static void tambahKendaraan(Kendaraan kendaraan) {
         armada.add(kendaraan);
     }
+
     // 2. Jual Kendaraan (dari armada kita ke pembeli)
     public static void jualKendaraan(Kendaraan kendaraan, double harga, String namaPembeli) {
-        // Buat objek penjualan
         Penjualan j = new Penjualan(
             penjualanCounter++,
             LocalDate.now(),
@@ -34,14 +35,9 @@ public class LogistikController {
             buatPelangganSementara(namaPembeli)
         );
         
-        // Ubah status kendaraan
         kendaraan.setStatus("TERJUAL");
-        
-        // Pindahkan dari armada ke armadaTerjual
         armada.remove(kendaraan);
         armadaTerjual.add(kendaraan);
-        
-        // Tambah ke daftar penjualan
         penjualanList.add(j);
     }
 
@@ -52,7 +48,7 @@ public class LogistikController {
             LocalDate.now(),
             LocalDate.now().plusDays(hari),
             biaya,
-            "DISEWA",
+            "DISEWA",  // Status awal: masih disewa
             kendaraan,
             buatPelangganSementara(namaPenyewa)
         );
@@ -60,22 +56,42 @@ public class LogistikController {
         sewaList.add(s);
     }
 
-    // Getter untuk armada terjual
+// 4. Pengembalian Kendaraan
+public static void kembalikanKendaraan(Penyewaan penyewaan, double denda) {
+    // Update status penyewaan menjadi SELESAI
+    penyewaan.setStatusSewa("SELESAI");
+    
+    // Update status kendaraan kembali menjadi TERSEDIA
+    penyewaan.getKendaraan().setStatus("TERSEDIA");
+    
+    // Catat pengembalian dengan referensi ke penyewaan
+    Pengembalian pengembalian = new Pengembalian(
+        pengembalianCounter++,
+        denda,
+        LocalDate.now(),
+        penyewaan  // Menyimpan referensi ke penyewaan
+    );
+    pengembalianList.add(pengembalian);
+}
+    // Getter methods
+    public static ArrayList<Kendaraan> getArmada() {
+        return armada;
+    }
+
     public static ArrayList<Kendaraan> getArmadaTerjual() {
         return armadaTerjual;
     }
 
-    // Getter untuk penjualan
     public static ArrayList<Penjualan> getPenjualanList() {
         return penjualanList;
-    }
-
-    // Getter lainnya tetap sama...
-    public static ArrayList<Kendaraan> getArmada() {
-        return armada;
     }
 
     public static ArrayList<Penyewaan> getSewaList() {
         return sewaList;
     }
+
+    public static ArrayList<Pengembalian> getPengembalianList() {
+        return pengembalianList;
+    }
+
 }

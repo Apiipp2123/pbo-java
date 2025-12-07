@@ -2,58 +2,33 @@ package model;
 
 import java.time.LocalDate;
 
-public class Penjualan{
-  private int id;
-  private LocalDate tanggal;
-  private double harga;
-  private Kendaraan kendaraan;
-  private Pelanggan pelanggan;
+public class Penjualan {
+    private int id;
+    private LocalDate tanggal;
+    private double harga;
+    private Kendaraan kendaraan;
+    private Pelanggan pelanggan;
 
-  public Penjualan (int id, LocalDate tanggal, double harga, Kendaraan kendaraan, Pelanggan pelanggan){
-    this.id=id;
-    this.tanggal=tanggal;
-    this.harga=harga;
-    this.kendaraan=kendaraan;
-    this.pelanggan=pelanggan;
-  }
+    public Penjualan(int id, LocalDate tanggal, double harga, Kendaraan kendaraan, Pelanggan pelanggan) {
+        this.id = id;
+        this.tanggal = tanggal;
+        this.harga = harga;
+        this.kendaraan = kendaraan;
+        this.pelanggan = pelanggan;
+    }
 
-  public int getId(){
-    return id;
-  }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-  public void setId(int id){
-    this.id=id;
-  }
+    public LocalDate getTanggal() { return tanggal; }
+    public void setTanggal(LocalDate tanggal) { this.tanggal = tanggal; }
 
-  public LocalDate getTanggal(){
-    return tanggal;
-  }
+    public double getHarga() { return harga; }
+    public void setHarga(double harga) { this.harga = harga; }
 
-  public void setTanggal(LocalDate tanggal){
-    this.tanggal=tanggal;
-  }
+    public Kendaraan getKendaraan() { return kendaraan; }
+    public void setKendaraan(Kendaraan kendaraan) { this.kendaraan = kendaraan; }
 
-  public double getHarga(){
-    return harga;
-  }
-
-  public void setHarga(double harga){
-    this.harga=harga;
-  }
-
-  public Kendaraan getKendaraan(){
-    return kendaraan;
-  }
-
-  public void setKendaraan(Kendaraan kendaraan){
-    this.kendaraan=kendaraan;
-  }
-
-  public Pelanggan getPelanggan(){
-    return pelanggan;
-  }
-
-  public void setPelanggan(Pelanggan pelanggan){
-    this.pelanggan=pelanggan;
-  }
+    public Pelanggan getPelanggan() { return pelanggan; }
+    public void setPelanggan(Pelanggan pelanggan) { this.pelanggan = pelanggan; }
 }

@@ -7,11 +7,12 @@ public class Penyewaan {
    private LocalDate mulai;
    private LocalDate selesai;
    private double totalBiaya;
-   private String statusSewa;
+   private String statusSewa; // DISEWA atau SELESAI
    private Kendaraan kendaraan;
    private Pelanggan pelanggan;
 
-   public Penyewaan(int id, LocalDate mulai, LocalDate selesai, double totalBiaya, String statusSewa, Kendaraan kendaraan, Pelanggan pelanggan) {
+   public Penyewaan(int id, LocalDate mulai, LocalDate selesai, double totalBiaya, 
+                    String statusSewa, Kendaraan kendaraan, Pelanggan pelanggan) {
     this.id = id;
     this.mulai = mulai;
     this.selesai = selesai;
@@ -21,61 +22,25 @@ public class Penyewaan {
     this.pelanggan = pelanggan;
    }
 
-   public int getId() {
-    return id;
-   }
+   // Getter dan Setter
+   public int getId() { return id; }
+   public void setId(int id) { this.id = id; }
 
-   public void setId(int id) {
-    this.id = id;
-   }
+   public LocalDate getMulai() { return mulai; }
+   public void setMulai(LocalDate mulai) { this.mulai = mulai; }
 
-   public LocalDate getMulai() {
-    return mulai;
-   }
+   public LocalDate getSelesai() { return selesai; }
+   public void setSelesai(LocalDate selesai) { this.selesai = selesai; }
 
-   public void setMulai(LocalDate mulai) {
-    this.mulai = mulai;
-   }
+   public double getTotalBiaya() { return totalBiaya; }
+   public void setTotalBiaya(double totalBiaya) { this.totalBiaya = totalBiaya; }
 
-   public LocalDate getSelesai() {
-    return selesai;
-   }
+   public String getStatusSewa() { return statusSewa; }
+   public void setStatusSewa(String statusSewa) { this.statusSewa = statusSewa; }
 
-   public void setSelesai(LocalDate selesai) {
-    this.selesai = selesai;
-   }
+   public Kendaraan getKendaraan() { return kendaraan; }
+   public void setKendaraan(Kendaraan kendaraan) { this.kendaraan = kendaraan; }
 
-   public double getTotalBiaya() {
-    return totalBiaya;
-   }
-
-   public void setTotalBiaya(double totalBiaya) {
-    this.totalBiaya = totalBiaya;
-   }
-
-   public String getStatusSewa() {
-    return statusSewa;
-   }
-
-   public void setStatusSewa(String statusSewa) {
-    this.statusSewa = statusSewa;
-   }
-
-   public Kendaraan getKendaraan() {
-    return kendaraan;
-   }
-
-   public void setKendaraan(Kendaraan kendaraan) {
-    this.kendaraan = kendaraan;
-   }
-
-   public Pelanggan getPelanggan() {
-    return pelanggan;
-   }
-
-   public void setPelanggan(Pelanggan pelanggan) {
-    this.pelanggan = pelanggan;
-   }
-
-   
+   public Pelanggan getPelanggan() { return pelanggan; }
+   public void setPelanggan(Pelanggan pelanggan) { this.pelanggan = pelanggan; }
 }
