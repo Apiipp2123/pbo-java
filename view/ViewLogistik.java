@@ -8,13 +8,15 @@ public class ViewLogistik {
     static Scanner in = new Scanner(System.in);
 
     public static void menu() {
-        System.out.println("\n=== MENU LOGISTIK DALEX ===");
-        System.out.println("1. Beli Kendaraan");
-        System.out.println("2. Sewa Kendaraan");
-        System.out.println("3. Lihat Armada");
-        System.out.println("4. Lihat Pembelian");
-        System.out.println("5. Lihat Penyewaan");
-        System.out.println("6. Keluar");
+        System.out.println("\n=== SISTEM LOGISTIK DALEX ===");
+        System.out.println("1. Tambah Kendaraan (Mobil/Motor)");
+        System.out.println("2. Lihat Semua Kendaraan");
+        System.out.println("3. Beli Kendaraan");
+        System.out.println("4. Jual Kendaraan");
+        System.out.println("5. Sewa Kendaraan");
+        System.out.println("6. Lihat Pembelian");
+        System.out.println("7. Lihat Penyewaan");
+        System.out.println("8. Keluar");
         System.out.print("Pilih: ");
     }
 
@@ -80,17 +82,85 @@ public class ViewLogistik {
             in.nextLine(); // Konsumsi newline
 
             switch (pilih) {
-                case 1:
-                    System.out.println("\n--- BELI KENDARAAN ---");
+                case 1: // Tambah Kendaraan
+                    System.out.println("\n--- TAMBAH KENDARAAN ---");
                     Kendaraan k = inputKendaraan();
+                    LogistikController.tambahKendaraan(k);
+                    System.out.println("Kendaraan berhasil ditambahkan ke armada!");
+                    break;
+
+                case 2: // Lihat Semua Kendaraan
+                    System.out.println("\n--- DAFTAR KENDARAAN ---");
+                    if (LogistikController.getArmada().isEmpty()) {
+                        System.out.println("Belum ada kendaraan dalam armada.");
+                    } else {
+                        int no = 1;
+                        for (Kendaraan knd : LogistikController.getArmada()) {
+                            System.out.println(no + ". " + knd);
+                            no++;
+                        }
+                    }
+                    break;
+
+                case 3: // Beli Kendaraan
+                    System.out.println("\n--- BELI KENDARAAN ---");
+                    System.out.print("Masukkan ID kendaraan yang ingin dibeli: ");
+                    String idBeli = in.nextLine();
+                    
+                    Kendaraan kendaraanBeli = null;
+                    for (Kendaraan kendaraan : LogistikController.getArmada()) {
+                        if (kendaraan.getId().equals(idBeli)) {
+                            kendaraanBeli = kendaraan;
+                            break;
+                        }
+                    }
+
+                    if (kendaraanBeli == null) {
+                        System.out.println("Kendaraan tidak ditemukan!");
+                        break;
+                    }
+
                     System.out.print("Masukkan harga pembelian: ");
                     double hargaBeli = in.nextDouble();
                     in.nextLine();
-                    LogistikController.beliKendaraan(k, hargaBeli);
-                    System.out.println("Kendaraan berhasil dibeli dan ditambahkan ke armada!");
+                    
+                    System.out.print("Nama Pembeli: ");
+                    String namaPembeli = in.nextLine();
+                    
+                    LogistikController.beliKendaraan(kendaraanBeli, hargaBeli, namaPembeli);
+                    System.out.println("Kendaraan berhasil dibeli!");
                     break;
 
-                case 2:
+                case 4: // Jual Kendaraan
+                    System.out.println("\n--- JUAL KENDARAAN ---");
+                    System.out.print("Masukkan ID kendaraan yang ingin dijual: ");
+                    String idJual = in.nextLine();
+                    
+                    Kendaraan kendaraanJual = null;
+                    for (Kendaraan kendaraan : LogistikController.getArmada()) {
+                        if (kendaraan.getId().equals(idJual)) {
+                            kendaraanJual = kendaraan;
+                            break;
+                        }
+                    }
+
+                    if (kendaraanJual == null) {
+                        System.out.println("Kendaraan tidak ditemukan!");
+                        break;
+                    }
+
+                    System.out.print("Masukkan harga penjualan: ");
+                    double hargaJual = in.nextDouble();
+                    in.nextLine();
+                    
+                    System.out.print("Nama Pembeli: ");
+                    String namaPembeliJual = in.nextLine();
+                    
+                    LogistikController.jualKendaraan(kendaraanJual, hargaJual, namaPembeliJual);
+                    System.out.println("Kendaraan berhasil dijual!");
+                    break;
+
+                case 5: // Sewa Kendaraan
                     System.out.println("\n--- SEWA KENDARAAN ---");
                     System.out.print("Masukkan ID kendaraan yang ingin disewa: ");
                     String idSewa = in.nextLine();
@@ -120,45 +190,47 @@ public class ViewLogistik {
                     System.out.println("Kendaraan berhasil disewa! Total: Rp" + biaya);
                     break;
 
-                case 3:
-                    System.out.println("\n--- ARMADA KENDARAAN ---");
-                    for (Kendaraan knd : LogistikController.getArmada()) {
-                        System.out.println(knd); // toString() sudah di-override di Mobil/Motor
-                    }
-                    break;
-
-                case 4:
+                case 6: // Lihat Pembelian
                     System.out.println("\n--- DAFTAR PEMBELIAN ---");
-                    for (var p : LogistikController.getPembelianList()) {
-                        Kendaraan knd = p.getKendaraan();
-                        System.out.println("ID: " + p.getId() +
-                                " | Tanggal: " + p.getTanggal() +
-                                " | Harga: " + p.getHarga() +
-                                " | Kendaraan: " + knd.getMerk() + " " + knd.getModel() +
-                                " (" + knd.getJenis() + ")");
+                    if (LogistikController.getPembelianList().isEmpty()) {
+                        System.out.println("Belum ada transaksi pembelian.");
+                    } else {
+                        for (var p : LogistikController.getPembelianList()) {
+                            Kendaraan knd = p.getKendaraan();
+                            System.out.println("ID: " + p.getId() +
+                                    " | Tanggal: " + p.getTanggal() +
+                                    " | Harga: " + p.getHarga() +
+                                    " | Pembeli: " + p.getPelanggan().getNama() +
+                                    " | Kendaraan: " + knd.getMerk() + " " + knd.getModel() +
+                                    " (" + knd.getJenis() + ")");
+                        }
                     }
                     break;
 
-                case 5:
+                case 7: // Lihat Penyewaan
                     System.out.println("\n--- DAFTAR PENYEWAAN ---");
-                    for (var s : LogistikController.getSewaList()) {
-                        Kendaraan knd = s.getKendaraan();
-                        System.out.println("ID: " + s.getId() +
-                                " | Penyewa: " + s.getPelanggan().getNama() +
-                                " | Kendaraan: " + knd.getMerk() + " " + knd.getModel() +
-                                " (" + knd.getJenis() + ")" +
-                                " | Tanggal: " + s.getMulai() + " s/d " + s.getSelesai() +
-                                " | Biaya: " + s.getTotalBiaya());
+                    if (LogistikController.getSewaList().isEmpty()) {
+                        System.out.println("Belum ada transaksi penyewaan.");
+                    } else {
+                        for (var s : LogistikController.getSewaList()) {
+                            Kendaraan knd = s.getKendaraan();
+                            System.out.println("ID: " + s.getId() +
+                                    " | Penyewa: " + s.getPelanggan().getNama() +
+                                    " | Kendaraan: " + knd.getMerk() + " " + knd.getModel() +
+                                    " (" + knd.getJenis() + ")" +
+                                    " | Tanggal: " + s.getMulai() + " s/d " + s.getSelesai() +
+                                    " | Biaya: " + s.getTotalBiaya());
+                        }
                     }
                     break;
 
-                case 6:
+                case 8:
                     System.out.println("Terima kasih telah menggunakan sistem logistik Dalex!");
                     break;
 
                 default:
                     System.out.println("Pilihan tidak valid!");
             }
-        } while (pilih != 6);
+        } while (pilih != 8);
     }
 }
