@@ -241,14 +241,14 @@ private static void prosesPengembalianKendaraan() {
         int hariTelat = in.nextInt();
         in.nextLine();
         
-        // Hitung denda (10% dari tarif sewa per hari untuk setiap hari keterlambatan)
+        // Hitung denda (50% dari tarif sewa per hari untuk setiap hari keterlambatan)
         double tarifHarian = kendaraan.getTarifSewaPerHari();
-        denda = hariTelat * tarifHarian * 0.1;
+        denda = hariTelat * tarifHarian * 0.5;
         
         System.out.println("\n=== PERHITUNGAN DENDA ===");
         System.out.println("Tarif sewa per hari: Rp" + tarifHarian);
         System.out.println("Jumlah hari telat: " + hariTelat + " hari");
-        System.out.println("Denda per hari (10%): Rp" + (tarifHarian * 0.1));
+        System.out.println("Denda per hari (50%): Rp" + (tarifHarian * 0.5));
         System.out.println("Total denda: Rp" + denda);
         System.out.println("=========================");
     } else {

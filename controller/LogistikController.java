@@ -57,6 +57,7 @@ public class LogistikController {
     }
 
 // 4. Pengembalian Kendaraan
+// 4. Pengembalian Kendaraan
 public static void kembalikanKendaraan(Penyewaan penyewaan, double denda) {
     // Update status penyewaan menjadi SELESAI
     penyewaan.setStatusSewa("SELESAI");
