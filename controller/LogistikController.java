@@ -7,7 +7,6 @@ import model.*;
 public class LogistikController {
     private static ArrayList<Kendaraan> armada = new ArrayList<>();
     private static ArrayList<Kendaraan> armadaTerjual = new ArrayList<>();
-    private static ArrayList<Pembelian> pembelianList = new ArrayList<>();
     private static ArrayList<Penjualan> penjualanList = new ArrayList<>();
     private static ArrayList<Penyewaan> sewaList = new ArrayList<>();
     
@@ -24,21 +23,7 @@ public class LogistikController {
     public static void tambahKendaraan(Kendaraan kendaraan) {
         armada.add(kendaraan);
     }
-
-    // 2. Beli Kendaraan (dari pihak lain ke armada kita)
-    public static void beliKendaraan(Kendaraan kendaraan, double harga, String namaPembeli) {
-        Pembelian p = new Pembelian(
-            pembelianCounter++, 
-            LocalDate.now(), 
-            harga, 
-            kendaraan, 
-            buatPelangganSementara(namaPembeli)
-        );
-        armada.add(kendaraan);
-        pembelianList.add(p);
-    }
-
-    // 3. Jual Kendaraan (dari armada kita ke pembeli)
+    // 2. Jual Kendaraan (dari armada kita ke pembeli)
     public static void jualKendaraan(Kendaraan kendaraan, double harga, String namaPembeli) {
         // Buat objek penjualan
         Penjualan j = new Penjualan(
@@ -60,7 +45,7 @@ public class LogistikController {
         penjualanList.add(j);
     }
 
-    // 4. Sewa Kendaraan
+    // 3. Sewa Kendaraan
     public static void sewaKendaraan(Kendaraan kendaraan, String namaPenyewa, int hari, double biaya) {
         Penyewaan s = new Penyewaan(
             sewaCounter++,
@@ -88,10 +73,6 @@ public class LogistikController {
     // Getter lainnya tetap sama...
     public static ArrayList<Kendaraan> getArmada() {
         return armada;
-    }
-
-    public static ArrayList<Pembelian> getPembelianList() {
-        return pembelianList;
     }
 
     public static ArrayList<Penyewaan> getSewaList() {
