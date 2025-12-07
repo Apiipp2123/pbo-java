@@ -102,36 +102,7 @@ public class ViewLogistik {
                     }
                     break;
 
-                case 3: // Beli Kendaraan
-                    System.out.println("\n--- BELI KENDARAAN ---");
-                    System.out.print("Masukkan ID kendaraan yang ingin dibeli: ");
-                    String idBeli = in.nextLine();
-                    
-                    Kendaraan kendaraanBeli = null;
-                    for (Kendaraan kendaraan : LogistikController.getArmada()) {
-                        if (kendaraan.getId().equals(idBeli)) {
-                            kendaraanBeli = kendaraan;
-                            break;
-                        }
-                    }
-
-                    if (kendaraanBeli == null) {
-                        System.out.println("Kendaraan tidak ditemukan!");
-                        break;
-                    }
-
-                    System.out.print("Masukkan harga pembelian: ");
-                    double hargaBeli = in.nextDouble();
-                    in.nextLine();
-                    
-                    System.out.print("Nama Pembeli: ");
-                    String namaPembeli = in.nextLine();
-                    
-                    LogistikController.beliKendaraan(kendaraanBeli, hargaBeli, namaPembeli);
-                    System.out.println("Kendaraan berhasil dibeli!");
-                    break;
-
-                case 4: // Jual Kendaraan
+                case 3: // Jual Kendaraan
                     System.out.println("\n--- JUAL KENDARAAN ---");
                     System.out.print("Masukkan ID kendaraan yang ingin dijual: ");
                     String idJual = in.nextLine();
@@ -160,7 +131,7 @@ public class ViewLogistik {
                     System.out.println("Kendaraan berhasil dijual!");
                     break;
 
-                case 5: // Sewa Kendaraan
+                case 4: // Sewa Kendaraan
                     System.out.println("\n--- SEWA KENDARAAN ---");
                     System.out.print("Masukkan ID kendaraan yang ingin disewa: ");
                     String idSewa = in.nextLine();
@@ -190,12 +161,12 @@ public class ViewLogistik {
                     System.out.println("Kendaraan berhasil disewa! Total: Rp" + biaya);
                     break;
 
-                case 6: // Lihat Pembelian
-                    System.out.println("\n--- DAFTAR PEMBELIAN ---");
-                    if (LogistikController.getPembelianList().isEmpty()) {
-                        System.out.println("Belum ada transaksi pembelian.");
+                case 5: // Lihat Penjualan
+                    System.out.println("\n--- DAFTAR PENJUALAN ---");
+                    if (LogistikController.getPenjualanList().isEmpty()) {
+                        System.out.println("Belum ada transaksi penjualan.");
                     } else {
-                        for (var p : LogistikController.getPembelianList()) {
+                        for (var p : LogistikController.getPenjualanList()) {
                             Kendaraan knd = p.getKendaraan();
                             System.out.println("ID: " + p.getId() +
                                     " | Tanggal: " + p.getTanggal() +
@@ -207,7 +178,7 @@ public class ViewLogistik {
                     }
                     break;
 
-                case 7: // Lihat Penyewaan
+                case 6: // Lihat Penyewaan
                     System.out.println("\n--- DAFTAR PENYEWAAN ---");
                     if (LogistikController.getSewaList().isEmpty()) {
                         System.out.println("Belum ada transaksi penyewaan.");
@@ -224,13 +195,13 @@ public class ViewLogistik {
                     }
                     break;
 
-                case 8:
+                case 7:
                     System.out.println("Terima kasih telah menggunakan sistem logistik Dalex!");
                     break;
 
                 default:
                     System.out.println("Pilihan tidak valid!");
             }
-        } while (pilih != 8);
+        } while (pilih != 7);
     }
 }
