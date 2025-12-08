@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rental Dalex - Sewa Mobil & Motor Terpercaya</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+      .smooth-scroll {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 smooth-scroll">
+    <nav class="bg-white shadow-md fixed w-full z-50">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="#"
+          class="text-2xl font-bold text-blue-600 flex items-center gap-2"
+        >
+          <i class="fas fa-car-side"></i> Rental Dalex
+        </a>
+        <div class="hidden md:flex space-x-8 text-sm font-semibold">
+          <a href="#home" class="hover:text-blue-600 transition">Beranda</a>
+          <a href="#armada" class="hover:text-blue-600 transition">Armada</a>
+          <a href="#layanan" class="hover:text-blue-600 transition">Layanan</a>
+          <a href="#kontak" class="hover:text-blue-600 transition">Kontak</a>
+        </div>
+        <div class="hidden md:block">
+          <a
+            href="#"
+            class="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg"
+            >Login / Daftar</a
+          >
+        </div>
+        <button class="md:hidden text-2xl text-gray-600">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <section
+      id="home"
+      class="hero-bg h-[85vh] flex items-center justify-center text-center px-4 relative"
+    >
+      <div class="text-white max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+          Jelajahi Kota Tanpa Batas
+        </h1>
+        <p class="text-lg md:text-xl mb-8 opacity-90">
+          Sewa mobil dan motor dengan kondisi prima, harga transparan, dan
+          layanan 24 jam.
+        </p>
+
+        <div
+          class="bg-white p-6 rounded-xl shadow-2xl flex flex-col md:flex-row gap-4 text-left items-end max-w-4xl mx-auto transform translate-y-16 md:translate-y-24"
+        >
+          <div class="w-full">
+            <label class="block text-gray-500 text-sm font-semibold mb-1"
+              >Tipe Kendaraan</label
+            >
+            <select
+              class="w-full bg-gray-100 border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500"
+            >
+              <option>Mobil (Lepas Kunci)</option>
+              <option>Mobil (+ Sopir)</option>
+              <option>Motor</option>
+            </select>
+          </div>
+          <div class="w-full">
+            <label class="block text-gray-500 text-sm font-semibold mb-1"
+              >Tanggal Sewa</label
+            >
+            <input
+              type="date"
+              class="w-full bg-gray-100 border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div class="w-full">
+            <label class="block text-gray-500 text-sm font-semibold mb-1"
+              >Durasi</label
+            >
+            <select
+              class="w-full bg-gray-100 border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500"
+            >
+              <option>1 Hari</option>
+              <option>3 Hari</option>
+              <option>1 Minggu</option>
+            </select>
+          </div>
+          <button
+            class="w-full md:w-auto bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition shadow-md whitespace-nowrap"
+          >
+            Cari Sekarang
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="h-32 md:h-20"></div>
+
+    <section id="layanan" class="py-16 container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div
+          class="p-6 border border-gray-100 hover:shadow-xl rounded-2xl transition duration-300"
+        >
+          <div
+            class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
+          >
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Asuransi Lengkap</h3>
+          <p class="text-gray-500 text-sm">
+            Perjalanan tenang dengan perlindungan asuransi all-risk untuk setiap
+            kendaraan.
+          </p>
+        </div>
+        <div
+          class="p-6 border border-gray-100 hover:shadow-xl rounded-2xl transition duration-300"
+        >
+          <div
+            class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
+          >
+            <i class="fas fa-wallet"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Harga Transparan</h3>
+          <p class="text-gray-500 text-sm">
+            Tidak ada biaya tersembunyi. Harga yang Anda lihat adalah harga yang
+            Anda bayar.
+          </p>
+        </div>
+        <div
+          class="p-6 border border-gray-100 hover:shadow-xl rounded-2xl transition duration-300"
+        >
+          <div
+            class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
+          >
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Layanan 24 Jam</h3>
+          <p class="text-gray-500 text-sm">
+            Tim support kami siap membantu kapanpun Anda membutuhkan bantuan di
+            jalan.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="armada" class="py-16 bg-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-800">Armada Pilihan Kami</h2>
+          <p class="text-gray-500 mt-2">
+            Pilih kendaraan yang sesuai dengan kebutuhan perjalanan Anda
+          </p>
+        </div>
+
+        <div class="flex justify-center mb-8 gap-4">
+          <button
+            class="px-6 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold shadow-md"
+          >
+            Semua
+          </button>
+          <button
+            class="px-6 py-2 bg-white text-gray-600 hover:bg-gray-200 rounded-full text-sm font-semibold"
+          >
+            Mobil
+          </button>
+          <button
+            class="px-6 py-2 bg-white text-gray-600 hover:bg-gray-200 rounded-full text-sm font-semibold"
+          >
+            Motor
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group"
+          >
+            <div class="relative overflow-hidden h-48">
+              <img
+                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                alt="Toyota Avanza"
+              />
+              <div
+                class="absolute top-3 right-3 bg-blue-600 text-white text-xs px-2 py-1 rounded"
+              >
+                Mobil
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg">Toyota Avanza</h3>
+              <div class="flex items-center text-xs text-gray-500 gap-3 my-3">
+                <span><i class="fas fa-chair"></i> 7 Kursi</span>
+                <span><i class="fas fa-cog"></i> Manual</span>
+                <span><i class="fas fa-gas-pump"></i> Bensin</span>
+              </div>
+              <div class="flex justify-between items-end border-t pt-4">
+                <div>
+                  <p class="text-xs text-gray-400">Mulai dari</p>
+                  <p class="text-blue-600 font-bold text-lg">
+                    Rp 350rb<span class="text-xs text-gray-400 font-normal"
+                      >/hari</span
+                    >
+                  </p>
+                </div>
+                <button
+                  class="text-blue-600 hover:text-blue-800 font-semibold text-sm"
+                >
+                  Pesan <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group"
+          >
+            <div class="relative overflow-hidden h-48">
+              <img
+                src="https://images.unsplash.com/photo-1533473359331-0135ef1bcfb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                alt="Honda Brio"
+              />
+              <div
+                class="absolute top-3 right-3 bg-blue-600 text-white text-xs px-2 py-1 rounded"
+              >
+                Mobil
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg">Honda Brio</h3>
+              <div class="flex items-center text-xs text-gray-500 gap-3 my-3">
+                <span><i class="fas fa-chair"></i> 5 Kursi</span>
+                <span><i class="fas fa-cog"></i> Matic</span>
+                <span><i class="fas fa-gas-pump"></i> Bensin</span>
+              </div>
+              <div class="flex justify-between items-end border-t pt-4">
+                <div>
+                  <p class="text-xs text-gray-400">Mulai dari</p>
+                  <p class="text-blue-600 font-bold text-lg">
+                    Rp 300rb<span class="text-xs text-gray-400 font-normal"
+                      >/hari</span
+                    >
+                  </p>
+                </div>
+                <button
+                  class="text-blue-600 hover:text-blue-800 font-semibold text-sm"
+                >
+                  Pesan <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group"
+          >
+            <div class="relative overflow-hidden h-48">
+              <img
+                src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                alt="Nmax"
+              />
+              <div
+                class="absolute top-3 right-3 bg-orange-500 text-white text-xs px-2 py-1 rounded"
+              >
+                Motor
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg">Yamaha NMAX</h3>
+              <div class="flex items-center text-xs text-gray-500 gap-3 my-3">
+                <span><i class="fas fa-chair"></i> 2 Kursi</span>
+                <span><i class="fas fa-cog"></i> Matic</span>
+                <span><i class="fas fa-motorcycle"></i> 155cc</span>
+              </div>
+              <div class="flex justify-between items-end border-t pt-4">
+                <div>
+                  <p class="text-xs text-gray-400">Mulai dari</p>
+                  <p class="text-blue-600 font-bold text-lg">
+                    Rp 150rb<span class="text-xs text-gray-400 font-normal"
+                      >/hari</span
+                    >
+                  </p>
+                </div>
+                <button
+                  class="text-blue-600 hover:text-blue-800 font-semibold text-sm"
+                >
+                  Pesan <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group"
+          >
+            <div class="relative overflow-hidden h-48">
+              <img
+                src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                alt="Vespa"
+              />
+              <div
+                class="absolute top-3 right-3 bg-orange-500 text-white text-xs px-2 py-1 rounded"
+              >
+                Motor
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg">Vespa Matic</h3>
+              <div class="flex items-center text-xs text-gray-500 gap-3 my-3">
+                <span><i class="fas fa-chair"></i> 2 Kursi</span>
+                <span><i class="fas fa-cog"></i> Matic</span>
+                <span><i class="fas fa-motorcycle"></i> 150cc</span>
+              </div>
+              <div class="flex justify-between items-end border-t pt-4">
+                <div>
+                  <p class="text-xs text-gray-400">Mulai dari</p>
+                  <p class="text-blue-600 font-bold text-lg">
+                    Rp 200rb<span class="text-xs text-gray-400 font-normal"
+                      >/hari</span
+                    >
+                  </p>
+                </div>
+                <button
+                  class="text-blue-600 hover:text-blue-800 font-semibold text-sm"
+                >
+                  Pesan <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-block border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition"
+            >Lihat Semua Armada</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-blue-900 text-white">
+      <div
+        class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between"
+      >
+        <div class="mb-6 md:mb-0">
+          <h2 class="text-3xl font-bold mb-2">
+            Diskon 20% untuk Sewa Mingguan!
+          </h2>
+          <p class="text-blue-200">
+            Gunakan kode promo:
+            <span class="text-white font-mono bg-blue-800 px-2 py-1 rounded"
+              >DRIVE20</span
+            >
+          </p>
+        </div>
+        <a
+          href="#"
+          class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-bold shadow-lg transition transform hover:-translate-y-1"
+        >
+          Ambil Promo
+        </a>
+      </div>
+    </section>
+
+    <footer id="kontak" class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div>
+            <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
+              <i class="fas fa-car-side text-blue-500"></i> Rental Dalex
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Penyedia jasa sewa kendaraan nomor 1 dengan pelayanan terbaik dan
+              unit terawat untuk kenyamanan perjalanan Anda.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Link Cepat</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li><a href="#" class="hover:text-blue-400">Tentang Kami</a></li>
+              <li>
+                <a href="#" class="hover:text-blue-400">Syarat & Ketentuan</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-400">Kebijakan Privasi</a>
+              </li>
+              <li><a href="#" class="hover:text-blue-400">Hubungi Kami</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Kontak</h4>
+            <ul class="space-y-3 text-gray-400 text-sm">
+              <li class="flex items-center gap-3">
+                <i class="fas fa-map-marker-alt text-blue-500"></i> Jl. Arief
+                Rahman Hakim No.175
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-phone text-blue-500"></i> 0851-8934-0745
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-envelope text-blue-500"></i>
+                Dalex@gmail.com
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Ikuti Kami</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-400 transition"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm"
+        >
+          &copy; 2025 Rental Dalex.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
